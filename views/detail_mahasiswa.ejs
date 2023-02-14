@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <title>Detail Mahasiswa</title>
+</head>
+<body>
+  
+  <div class="container mt-5 p-3 shadow">
+    <h1>Detail Mahasiswa</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/mahasiswa/list">Mahasiswa</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Detail</li>
+      </ol>
+    </nav>
+    <strong>Nama</strong>
+    <p><%= nama %></p>
+    <strong>NIM</strong>
+    <p><%= nim %></p>
+    <strong>Prodi</strong>
+    <p>
+      <%= prodi == "IF" ?
+        "Informatika" : prodi == "TI" ?
+          "Teknologi Informasi" : prodi == "RPL" ?
+            "Rekayasa Perangkat Lunak" : prodi == "SI" ?
+              "Sistem Informasi" : prodi == "TE" ?
+                "Teknik Elektro" : "" %>
+    </p>
+    <strong>Status</strong>
+    <p>
+      <% if (status == 1) { %>
+        <span class="badge text-bg-primary">Aktif</span>
+      <% } else { %>
+        <span class="badge text-bg-warning">Tidak Aktif</span>
+      <% } %>
+    </p>
+  </div>
+
+  <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

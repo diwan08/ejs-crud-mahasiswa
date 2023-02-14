@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <title>Tambah Mahasiswa</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Edit Mahasiswa</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/mahasiswa/list">Mahasiswa</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+      </ol>
+    </nav>
+    
+    <form class="shadow p-3" action="/mahasiswa/edit" method="post">
+      <input type="hidden" name="id" value="<%= id %>">
+      <div class="mb-3">
+        <label for="nama" class="form-label">Nama</label>
+        <input type="text" value="<%= nama %>" class="form-control" name="nama" id="nama" placeholder="Masukkan nama mahasiswa" required>
+      </div>
+      <div class="mb-3">
+        <label for="nim" class="form-label">NIM</label>
+        <input type="number" value="<%= nim %>" class="form-control" name="nim" id="nim" placeholder="Masukkan nim mahasiswa" required>
+      </div>
+      <label for="prodi">Prodi</label>
+      <select id="prodi" name="prodi" class="form-select" aria-label="Pilih prodi mahasiswa">
+        <option <%= prodi == "IF" ? "selected" : "" %> value="IF">Informatika</option>
+        <option <%= prodi == "TI" ? "selected" : "" %> value="TI">Teknologi Informasi</option>
+        <option <%= prodi == "RPL" ? "selected" : "" %> value="RPL">Rekayasa Perangkat Lunak</option>
+        <option <%= prodi == "SI" ? "selected" : "" %> value="SI">Sistem Informasi</option>
+        <option <%= prodi == "TE" ? "selected" : "" %> value="TE">Teknik Elektro</option>
+      </select>
+      <label for="status" class="mt-3">Status</label>
+      <select id="status" name="status" class="form-select" aria-label="Pilih status mahasiswa">
+        <option <%= status == 1 ? "selected" : "" %> value="1">Aktif</option>
+        <option <%= status == 0 ? "selected" : "" %> value="0">Tidak Aktif</option>
+      </select>
+      <div class="mt-3">
+        <a href="/mahasiswa/list" class="btn btn-secondary">Cancel</a>
+        <button class="btn btn-success" type="submit">Edit Mahasiswa</button>
+      </div>
+    </form>
+  </div>
+  
+  <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
